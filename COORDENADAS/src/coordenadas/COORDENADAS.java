@@ -6,7 +6,8 @@
 package coordenadas;
 
 import java.awt.geom.AffineTransform;
-
+import static java.lang.Math.*;
+import java.util.Scanner;
 /**
  *
  * @author ASUS
@@ -27,33 +28,52 @@ public class COORDENADAS {
 
 class Coord {
     private int x, y;
+     public Coord(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 }
 
 class Cuadrado {
     private Coord c;
     private int lado;
+    private Object t;
+    private Object r;
     public Cuadrado(Coord c, int lado) {
         this.c = c;
         this.lado = lado;
     }
     public void Traslacion() {  // Complete los parámetros requeridos
-        
+         c.setX(t.getX()+c.getX());
+        c.setY(t.getY()+c.getY());
     }
     public void Escalado() {  // Complete los parámetros requeridos
-        
+        lado = (int)(lado*(1+s/100.0f));
     }
     public void Rotacion() {  // Complete los parámetros requeridos
-    private AffineTransform at;
-    private int alturaImagen;
-    private int anchoImagen;
-    private double grados;
-    public Cuadrado(int alturaImagen, int anchuraImagen) {
-        at = new AffineTransform();
-        this.alturaImagen = alturaImagen;
-        this.anchoImagen = anchuraImagen;
-    }
-    public AffineTransform getTransform (){
-        return at;
+   
+    double d = sqrt(pow(r.getX()-0,2)+pow(r.getY()-0,2));
+        double angulo = 0;
+        int x = (int) (d*cos(angulo));
+        int y = (int) (d*sin(angulo));   
+        c.setX(x);
+        c.setY(y);
     
     }
 }
@@ -77,6 +97,21 @@ class Circunferencia {
 
     public void setRadio(float radio) {
         this.radio = radio;
+    }
+
+    @Override
+    public int hashCode() {
+        return c.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return c.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return c.toString();
     }
     
     
